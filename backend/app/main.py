@@ -16,6 +16,11 @@ class Item(BaseModel):
 async def read_root():
     return {"status": "Server running successfully", "service": "Backend"}
 
+@app.get ("/health")
+async def health_check():
+    """Endpoint to check the health of the service."""
+    return {"status": "healthy", "service": "Backend"}
+
 @app.post("/items/")
 async def create_item(item: Item):
     """Endpoint to demonstrate basic item creation."""
