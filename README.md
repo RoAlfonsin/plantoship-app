@@ -1,6 +1,6 @@
 # 💡 Plan To Ship: Idea to Execution Blueprint
 
-[![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+Shield: [![CC BY-NC-ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
 [![Portfolio Showcase](https://img.shields.io/badge/Status-Portfolio%20Showcase-green.svg)]()
 
 **A full-stack application that transforms abstract project ideas into detailed, actionable, and execution-ready technical backlogs.**
