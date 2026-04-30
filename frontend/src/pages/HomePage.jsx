@@ -1,5 +1,6 @@
 import { Container, Title, Text, Button, Card, TextInput } from "@mantine/core";
 import { useState } from "react";
+import ConnectionTest from "../components/ConnectionTest.jsx";
 
 export default function HomePage() {
   const [name, setName] = useState("");
@@ -35,6 +36,9 @@ export default function HomePage() {
           Greet Me
         </Button>
       </Card>
+
+      <ConnectionTest />
+
     </Container>
   );
 }
