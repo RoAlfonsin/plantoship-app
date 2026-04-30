@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from .utils.db_utils import Database
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -11,6 +12,8 @@ class Item(BaseModel):
     """Schema for incoming request data."""
     name: str
     description: str | None = None
+
+db = Database()
 
 @app.get("/")
 async def read_root():
@@ -25,5 +28,10 @@ async def health_check():
 async def create_item(item: Item):
     """Endpoint to demonstrate basic item creation."""
     return {"message": f"Item {item.name} created.", "data": item}
+
+@app.get("/db-test")
+async def db_test():
+    success, message = await db.test_connection()
+    return {"success": success, "message": message}
 
 # To run this locally (after activating venv): uvicorn main:app --reload
