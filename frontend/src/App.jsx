@@ -1,40 +1,16 @@
-import { Container, Title, Text, Button, Card, TextInput } from "@mantine/core";
-import { useState } from "react";
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import LoadingPage from './pages/LoadingView'
 
-export default function HomePage() {
-  const [name, setName] = useState("");
-
+function App() {
   return (
-    <Container size="sm" mt="xl">
-      {/* Title */}
-      <Title order={1} mb="md">
-        Welcome to Your App
-      </Title>
-
-      {/* Text */}
-      <Text mb="lg" c="dimmed">
-        This is a simple page built with Mantine components.
-      </Text>
-
-      {/* Card */}
-      <Card shadow="sm" padding="lg" radius="md" withBorder mb="lg">
-        <Text fw={500} mb="sm">
-          Enter your name:
-        </Text>
-
-        {/* TextInput */}
-        <TextInput
-          placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          mb="md"
-        />
-
-        {/* Button */}
-        <Button fullWidth onClick={() => alert(`Hello, ${name || "stranger"}!`)}>
-          Greet Me
-        </Button>
-      </Card>
-    </Container>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/loading" element={<LoadingPage />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
+
+export default App
