@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from .utils.db_utils import Database
+from app.utils.db_utils import Database
+from app.routers import user_submissions_routers
 
 # Initialize FastAPI application
 app = FastAPI(
@@ -22,6 +22,8 @@ app.add_middleware(
     allow_methods=["*"],          # Allows all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],          # Allows all headers
 )
+
+app.include_router(user_submissions_routers.router)
 
 db = Database()
 
