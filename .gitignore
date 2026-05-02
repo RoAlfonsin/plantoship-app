@@ -5,4 +5,5 @@ venv/
 *.pyc
 llm_instruccions/*
 .vscode
+.windsurf/
 # Add other common environment files (.env)
